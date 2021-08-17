@@ -15,9 +15,9 @@ namespace MusicPlayList.Services
                 !string.IsNullOrEmpty(tb_Singer) &&
                 !string.IsNullOrEmpty(tb_NSong) &&
                 !string.IsNullOrEmpty(tb_Genre))
-                return false;
-            else
                 return true;
+            else
+                return false;
         }
     }
 }
