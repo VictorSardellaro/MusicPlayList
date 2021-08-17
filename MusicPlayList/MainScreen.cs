@@ -36,6 +36,7 @@ namespace MusicPlayList
                 
                 var listViewItem = HandleView.AddListView(playListTitle, singer, nSong, genre, duration);
                 lv_Mlist.Items.Add(listViewItem);
+
             }
             else
             {
