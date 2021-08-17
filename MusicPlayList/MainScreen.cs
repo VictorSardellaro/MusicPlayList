@@ -33,15 +33,18 @@ namespace MusicPlayList
 
             if (Validation.DataCheck(playListTitle, singer, nSong, genre))
             {
-                HandleView.AddListView(playListTitle, singer, nSong, genre, duration);
-
+                
+                var listViewItem = HandleView.AddListView(playListTitle, singer, nSong, genre, duration);
+                lv_Mlist.Items.Add(listViewItem);
             }
             else
             {
                 MessageBox.Show("Some of the fields are empty, please fill in all fields correctly", "Error:");
-            }          
+            }
 
-          
+            
+
+
             //Add
             //Clear
         }

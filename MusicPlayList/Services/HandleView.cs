@@ -9,7 +9,7 @@ namespace MusicPlayList.Services
 {
     class HandleView
     {
-        public static void AddListView(string tb_PlaylistTitle, string tb_Singer, string tb_NSong, string tb_Genre, string duration)
+        public static ListViewItem AddListView(string tb_PlaylistTitle, string tb_Singer, string tb_NSong, string tb_Genre, string duration)
         {
 
             ListViewItem listViewItem = new ListViewItem(tb_PlaylistTitle);
@@ -19,7 +19,7 @@ namespace MusicPlayList.Services
             listViewItem.SubItems.Add(tb_Genre);
             listViewItem.SubItems.Add(duration);
 
-            //items.Add(listViewItem);
+            return listViewItem;
 
         }
 
