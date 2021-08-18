@@ -10,9 +10,8 @@ namespace MusicPlayList.Models
         [Table("[Playlist]")]
         public class Playlist
         {
-        
-        public string Title { get; set; }
-        //pending MusicID and PlaylistID
+        public int Id { get; set; }
+        public string PlaylistTitle { get; set; }        
 
         }    
 }
