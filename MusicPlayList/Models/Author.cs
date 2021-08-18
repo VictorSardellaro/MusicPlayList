@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 using Dapper.Contrib.Extensions;
 
 namespace MusicPlayList.Models
-{     
-        [Table("[Author]")]
-        public class Author
-        {                  
-            public int Id { get; set; }
-            public string Name { get; set; }
-
-        }    
+{
+    [Table("[Author]")]
+    public class Author
+    {        
+        public int AuthorId { get; set; }        
+        public string AuthorName { get; set; }
+    }
 }
 
