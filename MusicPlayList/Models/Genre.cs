@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicPlayList.Models
-{   
-        [Table("[Genre]")]
-        public class Genre
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
+{
+    [Table("[Genre]")]
+    public class Genre
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
 
-        }
- }
+    }
+}
 
 
