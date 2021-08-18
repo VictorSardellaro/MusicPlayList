@@ -41,17 +41,21 @@ namespace MusicPlayList
             this.tb_Genre = new System.Windows.Forms.TextBox();
             this.tb_Singer = new System.Windows.Forms.TextBox();
             this.tb_PlaylistTitle = new System.Windows.Forms.TextBox();
-            this.btn_Add = new System.Windows.Forms.Button();
+            this.btn_Ok = new System.Windows.Forms.Button();
             this.lv_Mlist = new System.Windows.Forms.ListView();
             this.cl_ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_PTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cl_Singer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cl_Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_MGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_NSong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mtb_DSong = new System.Windows.Forms.MaskedTextBox();
-            this.btn_Updt = new System.Windows.Forms.Button();
             this.tb_PlaylistId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.rb_Add = new System.Windows.Forms.RadioButton();
+            this.rb_Update = new System.Windows.Forms.RadioButton();
+            this.gb_Action = new System.Windows.Forms.GroupBox();
+            this.cl_MDuration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gb_Action.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -164,18 +168,18 @@ namespace MusicPlayList
             this.tb_PlaylistTitle.Size = new System.Drawing.Size(100, 25);
             this.tb_PlaylistTitle.TabIndex = 1;
             // 
-            // btn_Add
+            // btn_Ok
             // 
-            this.btn_Add.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Add.Font = new System.Drawing.Font("Berlin Sans FB", 15F);
-            this.btn_Add.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Add.Location = new System.Drawing.Point(477, 132);
-            this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(126, 39);
-            this.btn_Add.TabIndex = 6;
-            this.btn_Add.Text = "Add";
-            this.btn_Add.UseVisualStyleBackColor = false;
-            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
+            this.btn_Ok.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btn_Ok.Font = new System.Drawing.Font("Berlin Sans FB", 15F);
+            this.btn_Ok.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_Ok.Location = new System.Drawing.Point(438, 239);
+            this.btn_Ok.Name = "btn_Ok";
+            this.btn_Ok.Size = new System.Drawing.Size(126, 39);
+            this.btn_Ok.TabIndex = 6;
+            this.btn_Ok.Text = "Ok";
+            this.btn_Ok.UseVisualStyleBackColor = false;
+            this.btn_Ok.Click += new System.EventHandler(this.btn_Ok_Click);
             // 
             // lv_Mlist
             // 
@@ -183,15 +187,16 @@ namespace MusicPlayList
             this.lv_Mlist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cl_ID,
             this.cl_PTitle,
-            this.cl_Singer,
+            this.cl_Author,
             this.cl_MGenre,
-            this.cl_NSong});
+            this.cl_NSong,
+            this.cl_MDuration});
             this.lv_Mlist.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lv_Mlist.GridLines = true;
             this.lv_Mlist.HideSelection = false;
             this.lv_Mlist.Location = new System.Drawing.Point(12, 306);
             this.lv_Mlist.Name = "lv_Mlist";
-            this.lv_Mlist.Size = new System.Drawing.Size(731, 284);
+            this.lv_Mlist.Size = new System.Drawing.Size(824, 284);
             this.lv_Mlist.TabIndex = 14;
             this.lv_Mlist.UseCompatibleStateImageBehavior = false;
             this.lv_Mlist.View = System.Windows.Forms.View.Details;
@@ -199,26 +204,27 @@ namespace MusicPlayList
             // cl_ID
             // 
             this.cl_ID.Text = "ID";
+            this.cl_ID.Width = 42;
             // 
             // cl_PTitle
             // 
-            this.cl_PTitle.Text = "Title";
-            this.cl_PTitle.Width = 143;
+            this.cl_PTitle.Text = "Playlist Title";
+            this.cl_PTitle.Width = 218;
             // 
-            // cl_Singer
+            // cl_Author
             // 
-            this.cl_Singer.Text = "Singer";
-            this.cl_Singer.Width = 175;
+            this.cl_Author.Text = "Author";
+            this.cl_Author.Width = 87;
             // 
             // cl_MGenre
             // 
             this.cl_MGenre.Text = "Genre";
-            this.cl_MGenre.Width = 160;
+            this.cl_MGenre.Width = 80;
             // 
             // cl_NSong
             // 
             this.cl_NSong.Text = "Song";
-            this.cl_NSong.Width = 189;
+            this.cl_NSong.Width = 300;
             // 
             // mtb_DSong
             // 
@@ -230,19 +236,6 @@ namespace MusicPlayList
             this.mtb_DSong.Name = "mtb_DSong";
             this.mtb_DSong.Size = new System.Drawing.Size(100, 25);
             this.mtb_DSong.TabIndex = 5;
-            // 
-            // btn_Updt
-            // 
-            this.btn_Updt.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_Updt.Font = new System.Drawing.Font("Berlin Sans FB", 15F);
-            this.btn_Updt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Updt.Location = new System.Drawing.Point(477, 200);
-            this.btn_Updt.Name = "btn_Updt";
-            this.btn_Updt.Size = new System.Drawing.Size(126, 39);
-            this.btn_Updt.TabIndex = 15;
-            this.btn_Updt.Text = "Update";
-            this.btn_Updt.UseVisualStyleBackColor = false;
-            this.btn_Updt.Click += new System.EventHandler(this.btn_Updt_Click);
             // 
             // tb_PlaylistId
             // 
@@ -264,18 +257,55 @@ namespace MusicPlayList
             this.label8.TabIndex = 18;
             this.label8.Text = "Playlist ID:";
             // 
+            // rb_Add
+            // 
+            this.rb_Add.AutoSize = true;
+            this.rb_Add.Location = new System.Drawing.Point(6, 13);
+            this.rb_Add.Name = "rb_Add";
+            this.rb_Add.Size = new System.Drawing.Size(48, 19);
+            this.rb_Add.TabIndex = 19;
+            this.rb_Add.TabStop = true;
+            this.rb_Add.Text = "Add";
+            this.rb_Add.UseVisualStyleBackColor = true;
+            // 
+            // rb_Update
+            // 
+            this.rb_Update.AutoSize = true;
+            this.rb_Update.Location = new System.Drawing.Point(59, 13);
+            this.rb_Update.Name = "rb_Update";
+            this.rb_Update.Size = new System.Drawing.Size(64, 19);
+            this.rb_Update.TabIndex = 20;
+            this.rb_Update.TabStop = true;
+            this.rb_Update.Text = "Update";
+            this.rb_Update.UseVisualStyleBackColor = true;
+            // 
+            // gb_Action
+            // 
+            this.gb_Action.Controls.Add(this.rb_Update);
+            this.gb_Action.Controls.Add(this.rb_Add);
+            this.gb_Action.Location = new System.Drawing.Point(438, 188);
+            this.gb_Action.Name = "gb_Action";
+            this.gb_Action.Size = new System.Drawing.Size(126, 43);
+            this.gb_Action.TabIndex = 21;
+            this.gb_Action.TabStop = false;
+            // 
+            // cl_MDuration
+            // 
+            this.cl_MDuration.Text = "Music Duration";
+            this.cl_MDuration.Width = 93;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(754, 602);
+            this.ClientSize = new System.Drawing.Size(843, 602);
+            this.Controls.Add(this.gb_Action);
             this.Controls.Add(this.tb_PlaylistId);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.btn_Updt);
             this.Controls.Add(this.mtb_DSong);
             this.Controls.Add(this.lv_Mlist);
-            this.Controls.Add(this.btn_Add);
+            this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.tb_PlaylistTitle);
             this.Controls.Add(this.tb_Singer);
             this.Controls.Add(this.tb_Genre);
@@ -293,6 +323,8 @@ namespace MusicPlayList
             this.Name = "MainScreen";
             this.Text = "Music Playlist";
             this.Load += new System.EventHandler(this.MainScreen_Load);
+            this.gb_Action.ResumeLayout(false);
+            this.gb_Action.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,17 +343,20 @@ namespace MusicPlayList
         private System.Windows.Forms.TextBox tb_Genre;
         private System.Windows.Forms.TextBox tb_Singer;
         private System.Windows.Forms.TextBox tb_PlaylistTitle;
-        private System.Windows.Forms.Button btn_Add;
+        private System.Windows.Forms.Button btn_Ok;
         private System.Windows.Forms.ListView lv_Mlist;
         private System.Windows.Forms.ColumnHeader cl_ID;
         private System.Windows.Forms.ColumnHeader cl_PTitle;
-        private System.Windows.Forms.ColumnHeader cl_Singer;
+        private System.Windows.Forms.ColumnHeader cl_Author;
         private System.Windows.Forms.ColumnHeader cl_MGenre;
         private System.Windows.Forms.ColumnHeader cl_NSong;
         private System.Windows.Forms.MaskedTextBox mtb_DSong;
-        private System.Windows.Forms.Button btn_Updt;
         private System.Windows.Forms.TextBox tb_PlaylistId;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rb_Add;
+        private System.Windows.Forms.RadioButton rb_Update;
+        private System.Windows.Forms.GroupBox gb_Action;
+        private System.Windows.Forms.ColumnHeader cl_MDuration;
     }
 }
 
