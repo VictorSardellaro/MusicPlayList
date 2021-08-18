@@ -24,42 +24,54 @@ namespace MusicPlayList
 
         }
 
-        private void btn_Add_Click(object sender, EventArgs e)
+        private void btn_Ok_Click(object sender, EventArgs e)
         {
-            //DbHandler.CreateAuthor();
-            //DbHandler.UpdateAuthor();
-            DbHandler.DeleteAuthor();
-            
-
-
-            string playListTitle = tb_PlaylistTitle.Text;
-            string singer = tb_Singer.Text;
-            string nSong = tb_NSong.Text;
-            string genre = tb_Genre.Text;
-            string duration = mtb_DSong.Text;
-
-
-            //try para capturar o erro retornado do banco
-
-            if (Validation.DataCheck(playListTitle, singer, nSong, genre))
+            if (rb_Add.Checked)
             {
-                
-                var listViewItem = HandleView.AddListView(playListTitle, singer, nSong, genre, duration);
-                lv_Mlist.Items.Add(listViewItem);
+                //DbHandler.CreateAuthor();                
+
+                string playListTitle = tb_PlaylistTitle.Text;
+                string author = tb_Singer.Text;
+                string nSong = tb_NSong.Text;
+                string genre = tb_Genre.Text;
+                DateTime duration = DateTime.Parse(mtb_DSong.Text);
+
+                AuthorRepository.CreateAuthor(author);
+                MusicRepository.CreateMusic(nSong , genre, duration);
+
+
+
+
+                //try catch
+
+                if (Validation.DataCheck(playListTitle, author, nSong, genre))
+                {
+                    
+
+                    var listViewItem = HandleView.AddListView(playListTitle, author, nSong, genre, (duration.ToString()));
+                    lv_Mlist.Items.Add(listViewItem);
+
+                }
+                else
+                {
+                    MessageBox.Show("Some of the fields are empty, please fill in all fields correctly", "Error:");
+                }
 
             }
+
+            else if (rb_Update.Checked)
+            {
+                //DbHandler.UpdateAuthor();
+            }
+
             else
             {
-                MessageBox.Show("Some of the fields are empty, please fill in all fields correctly", "Error:");
-            }           
+                MessageBox.Show("Select at least one option, Add or Update", "Error:");
+            }
 
 
-            
         }
 
-        private void btn_Updt_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }
