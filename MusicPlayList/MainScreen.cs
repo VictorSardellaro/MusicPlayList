@@ -1,4 +1,5 @@
-﻿using MusicPlayList.Services;
+﻿using MusicPlayList.Repositories;
+using MusicPlayList.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +26,20 @@ namespace MusicPlayList
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            //DbHandler.CreateAuthor();
+            //DbHandler.UpdateAuthor();
+            DbHandler.DeleteAuthor();
+            
+
+
             string playListTitle = tb_PlaylistTitle.Text;
             string singer = tb_Singer.Text;
             string nSong = tb_NSong.Text;
             string genre = tb_Genre.Text;
             string duration = mtb_DSong.Text;
+
+
+            //try para capturar o erro retornado do banco
 
             if (Validation.DataCheck(playListTitle, singer, nSong, genre))
             {
@@ -41,14 +51,15 @@ namespace MusicPlayList
             else
             {
                 MessageBox.Show("Some of the fields are empty, please fill in all fields correctly", "Error:");
-            }
+            }           
+
 
             
-
-
-            //Add
-            //Clear
         }
-        
+
+        private void btn_Updt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
