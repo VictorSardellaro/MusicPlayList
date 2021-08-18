@@ -26,15 +26,14 @@ namespace MusicPlayList.Repositories
         }
 
 
-        public static void CreatePlaylist()
+        public static void CreatePlaylist(string playlistTitle)
         {
             ConnectionString.DBStartConnection();
-
-            string name = "Henryk Teste";
+            
 
             Create(new Playlist
             {
-                PlaylistTitle = name
+                PlaylistTitle = playlistTitle
             });
 
             ConnectionString.DBCloseConnection();
