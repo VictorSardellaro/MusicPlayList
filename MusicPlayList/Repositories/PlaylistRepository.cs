@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MusicPlayList.Repositories;
 using MusicPlayList.Models;
-using Microsoft.Data.SqlClient;
 
 
 namespace MusicPlayList.Repositories

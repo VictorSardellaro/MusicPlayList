@@ -39,9 +39,6 @@ namespace MusicPlayList
                 AuthorRepository.CreateAuthor(author);
                 MusicRepository.CreateMusic(nSong , genre, duration);
 
-
-
-
                 //try catch
 
                 if (Validation.DataCheck(playListTitle, author, nSong, genre))
