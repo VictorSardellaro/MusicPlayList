@@ -13,18 +13,13 @@ namespace MusicPlayList.Repositories
 
         private static void List()
         {
-            var repository = new Repository<Author>(Database.Connection);
-            //var tags = repository.Get();
-            //foreach (var item in tags)
-                //Console.WriteLine($"{item.Id} - {item.Name} ({item.Slug})");
+            
         }
 
 
         public static void CreateAuthor(string author)
         {
-            ConnectionString.DBStartConnection();
-
-            
+            ConnectionString.DBStartConnection();            
 
             Create(new Author
             {

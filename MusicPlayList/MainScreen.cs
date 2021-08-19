@@ -21,6 +21,7 @@ namespace MusicPlayList
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
+            
 
         }
 
@@ -28,24 +29,22 @@ namespace MusicPlayList
         {
             if (rb_Add.Checked)
             {
-                //DbHandler.CreateAuthor();                
 
                 string playListTitle = tb_PlaylistTitle.Text;
-                string author = tb_Singer.Text;
+                int authorId = 2;
+                //int authorId = int.Parse(tb_Singer.Text);
                 string nSong = tb_NSong.Text;
-                string genre = tb_Genre.Text;
+                int genreId = 2;
+                //int genreId = int.Parse(tb_Genre.Text);
                 DateTime duration = DateTime.Parse(mtb_DSong.Text);
 
-                AuthorRepository.CreateAuthor(author);
-                MusicRepository.CreateMusic(nSong , genre, duration);
+                MusicRepository.CreateMusic(nSong, duration, genreId, authorId);
 
-                //try catch
 
-                if (Validation.DataCheck(playListTitle, author, nSong, genre))
+                if (Validation.DataCheck(playListTitle, authorId.ToString(), nSong, genreId.ToString()))
                 {
-                    
 
-                    var listViewItem = HandleView.AddListView(playListTitle, author, nSong, genre, (duration.ToString()));
+                    var listViewItem = HandleView.AddListView(playListTitle, authorId.ToString(), nSong, genreId.ToString(), (duration.ToString()));
                     lv_Mlist.Items.Add(listViewItem);
 
                 }
@@ -58,7 +57,7 @@ namespace MusicPlayList
 
             else if (rb_Update.Checked)
             {
-                //DbHandler.UpdateAuthor();
+                //update
             }
 
             else
@@ -68,7 +67,54 @@ namespace MusicPlayList
 
 
         }
+        
+        private void cb_Author_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+
+            try
+            {
+                using (MusicPlaylistEntities db = new MusicPlaylistEntities())
+                {
+                    
+                    cb_Author.DataSource = db.Authors.ToList();
+                    cb_Author.DisplayMember = "AuthorName";
+                    cb_Author.ValueMember = "AuthorId";
+                    
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void cb_Genre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+                using (MusicPlaylistEntities db = new MusicPlaylistEntities())
+                {
+
+                    cb_Author.DataSource = db.Genres.ToList();
+                    cb_Author.DisplayMember = "GenreName";
+                    cb_Author.ValueMember = "GenreId";
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
     }
-}
+    }
+
+
+

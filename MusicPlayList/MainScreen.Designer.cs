@@ -38,8 +38,6 @@ namespace MusicPlayList
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tb_NSong = new System.Windows.Forms.TextBox();
-            this.tb_Genre = new System.Windows.Forms.TextBox();
-            this.tb_Singer = new System.Windows.Forms.TextBox();
             this.tb_PlaylistTitle = new System.Windows.Forms.TextBox();
             this.btn_Ok = new System.Windows.Forms.Button();
             this.lv_Mlist = new System.Windows.Forms.ListView();
@@ -48,13 +46,15 @@ namespace MusicPlayList
             this.cl_Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_MGenre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_NSong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cl_MDuration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mtb_DSong = new System.Windows.Forms.MaskedTextBox();
             this.tb_PlaylistId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.rb_Add = new System.Windows.Forms.RadioButton();
             this.rb_Update = new System.Windows.Forms.RadioButton();
             this.gb_Action = new System.Windows.Forms.GroupBox();
-            this.cl_MDuration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cb_Author = new System.Windows.Forms.ComboBox();
+            this.cb_Genre = new System.Windows.Forms.ComboBox();
             this.gb_Action.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,26 +138,6 @@ namespace MusicPlayList
             this.tb_NSong.Size = new System.Drawing.Size(164, 25);
             this.tb_NSong.TabIndex = 4;
             // 
-            // tb_Genre
-            // 
-            this.tb_Genre.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tb_Genre.Font = new System.Drawing.Font("Berlin Sans FB", 12F);
-            this.tb_Genre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tb_Genre.Location = new System.Drawing.Point(369, 200);
-            this.tb_Genre.Name = "tb_Genre";
-            this.tb_Genre.Size = new System.Drawing.Size(164, 25);
-            this.tb_Genre.TabIndex = 3;
-            // 
-            // tb_Singer
-            // 
-            this.tb_Singer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tb_Singer.Font = new System.Drawing.Font("Berlin Sans FB", 12F);
-            this.tb_Singer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tb_Singer.Location = new System.Drawing.Point(369, 174);
-            this.tb_Singer.Name = "tb_Singer";
-            this.tb_Singer.Size = new System.Drawing.Size(164, 25);
-            this.tb_Singer.TabIndex = 2;
-            // 
             // tb_PlaylistTitle
             // 
             this.tb_PlaylistTitle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -226,6 +206,11 @@ namespace MusicPlayList
             this.cl_NSong.Text = "Song";
             this.cl_NSong.Width = 300;
             // 
+            // cl_MDuration
+            // 
+            this.cl_MDuration.Text = "Music Duration";
+            this.cl_MDuration.Width = 93;
+            // 
             // mtb_DSong
             // 
             this.mtb_DSong.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -234,7 +219,7 @@ namespace MusicPlayList
             this.mtb_DSong.Location = new System.Drawing.Point(369, 256);
             this.mtb_DSong.Mask = "00:00:00";
             this.mtb_DSong.Name = "mtb_DSong";
-            this.mtb_DSong.Size = new System.Drawing.Size(60, 25);
+            this.mtb_DSong.Size = new System.Drawing.Size(72, 25);
             this.mtb_DSong.TabIndex = 5;
             // 
             // tb_PlaylistId
@@ -289,10 +274,27 @@ namespace MusicPlayList
             this.gb_Action.TabIndex = 21;
             this.gb_Action.TabStop = false;
             // 
-            // cl_MDuration
+            // cb_Author
             // 
-            this.cl_MDuration.Text = "Music Duration";
-            this.cl_MDuration.Width = 93;
+            this.cb_Author.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cb_Author.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cb_Author.FormattingEnabled = true;
+            this.cb_Author.Location = new System.Drawing.Point(369, 174);
+            this.cb_Author.Name = "cb_Author";
+            this.cb_Author.Size = new System.Drawing.Size(164, 23);
+            this.cb_Author.TabIndex = 22;
+            this.cb_Author.SelectedIndexChanged += new System.EventHandler(this.cb_Author_SelectedIndexChanged);            
+            // 
+            // cb_Genre
+            // 
+            this.cb_Genre.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.cb_Genre.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cb_Genre.FormattingEnabled = true;
+            this.cb_Genre.Location = new System.Drawing.Point(369, 199);
+            this.cb_Genre.Name = "cb_Genre";
+            this.cb_Genre.Size = new System.Drawing.Size(164, 23);
+            this.cb_Genre.TabIndex = 23;
+            this.cb_Genre.SelectedIndexChanged += new System.EventHandler(this.cb_Genre_SelectedIndexChanged);            
             // 
             // MainScreen
             // 
@@ -300,6 +302,8 @@ namespace MusicPlayList
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(843, 602);
+            this.Controls.Add(this.cb_Genre);
+            this.Controls.Add(this.cb_Author);
             this.Controls.Add(this.gb_Action);
             this.Controls.Add(this.tb_PlaylistId);
             this.Controls.Add(this.label8);
@@ -307,8 +311,6 @@ namespace MusicPlayList
             this.Controls.Add(this.lv_Mlist);
             this.Controls.Add(this.btn_Ok);
             this.Controls.Add(this.tb_PlaylistTitle);
-            this.Controls.Add(this.tb_Singer);
-            this.Controls.Add(this.tb_Genre);
             this.Controls.Add(this.tb_NSong);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -340,8 +342,6 @@ namespace MusicPlayList
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tb_NSong;
-        private System.Windows.Forms.TextBox tb_Genre;
-        private System.Windows.Forms.TextBox tb_Singer;
         private System.Windows.Forms.TextBox tb_PlaylistTitle;
         private System.Windows.Forms.Button btn_Ok;
         private System.Windows.Forms.ListView lv_Mlist;
@@ -357,6 +357,8 @@ namespace MusicPlayList
         private System.Windows.Forms.RadioButton rb_Update;
         private System.Windows.Forms.GroupBox gb_Action;
         private System.Windows.Forms.ColumnHeader cl_MDuration;
+        private System.Windows.Forms.ComboBox cb_Genre;
+        private System.Windows.Forms.ComboBox cb_Author;
     }
 }
 

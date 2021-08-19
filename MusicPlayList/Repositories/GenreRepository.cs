@@ -14,12 +14,8 @@ namespace MusicPlayList.Repositories
 
         private static void List()
         {
-            var repository = new Repository<Genre>(Database.Connection);
-            //var tags = repository.Get();
-            //foreach (var item in tags)
-                //Console.WriteLine($"{item.Id} - {item.Name} ({item.Slug})");
+            
         }
-
 
         public static void CreateGenre()
         {

@@ -13,10 +13,7 @@ namespace MusicPlayList.Repositories
 
         private static void List()
         {
-            var repository = new Repository<Playlist>(Database.Connection);
-            //var tags = repository.Get();
-            //foreach (var item in tags)
-                //Console.WriteLine($"{item.Id} - {item.Name} ({item.Slug})");
+
         }
 
 

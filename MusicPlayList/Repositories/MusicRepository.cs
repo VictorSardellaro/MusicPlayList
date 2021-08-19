@@ -13,14 +13,11 @@ namespace MusicPlayList.Repositories
 
         private static void List()
         {
-            var repository = new Repository<Music>(Database.Connection);
-            //var tags = repository.Get();
-            //foreach (var item in tags)
-                //Console.WriteLine($"{item.Id} - {item.Name} ({item.Slug})");
+
         }
 
 
-        public static void CreateMusic(string nSong, string genre, DateTime duration)
+        public static void CreateMusic(string nSong, DateTime duration, int genreId, int authorId)
         {
             ConnectionString.DBStartConnection();
 
@@ -28,10 +25,11 @@ namespace MusicPlayList.Repositories
 
             Create(new Music
             {
-                MusicTitle = nSong,
-                Genre = genre,
-                Duration = duration
-                
+                MusicTitle = nSong,                
+                MusicDuration = duration,
+                GenreId = genreId,
+                AuthorId = authorId
+
             });
 
             ConnectionString.DBCloseConnection();

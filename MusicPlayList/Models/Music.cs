@@ -7,9 +7,10 @@ namespace MusicPlayList.Models
     public class Music
     {
         public int Id { get; set; }
-        public string MusicTitle { get; set; }
-        public string Genre { get; set; }
-        public DateTime Duration { get; set; }
+        public string MusicTitle { get; set; }        
+        public DateTime MusicDuration { get; set; }
+        public int GenreId { get; set; }
+        public int AuthorId { get; set; }
 
     }
 }
